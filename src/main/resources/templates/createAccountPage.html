@@ -1,0 +1,50 @@
+<!--Форма создания аккаунта пользователя - регистрация-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+</head>
+<body style="background-color: #dddddd">
+    <div align="center">
+        <br><br><br><br>
+        <h2>Регистрация</h2>
+        <br>
+        <main class="form-sign">
+            <form action="/create" method="POST">
+
+                <h5>Информация о пользователе</h5>
+                <!-- Имя пользователя будет любым-->
+                <div><input class="form-control" style="width: 300px; height: 40px" type="text" name="name" placeholder="Имя"/></div>
+                <!-- Фамилия пользователя будет любой-->
+                <div><input class="form-control" style="width: 300px; height: 40px" type="text" name="lastname" placeholder="Фамилия"/></div>
+                <!-- Email валидируем регулярным выражением. В функцию передаются параметры id поля, RegExp, сообщение в случае неудачи-->
+                <div><input class="form-control" style="width: 300px; height: 40px" type="text" name="email" id="email" placeholder="Почта" required
+                            oninput="validate('email', /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+/ ,'Email введен некорректно')"/></div>
+
+                <br>
+
+                <h5>Данные входа на сайт</h5>
+                <!--Логин должен быть больше 5 и меньше 10 символов-->
+                <div><input class="form-control" style="width: 300px; height: 40px" type="text" name="username" id="username" placeholder="Логин" required
+                            oninput="validate('username', /[a-zA-Z0-9]{5,10}/, 'Имя пользователя должно быть от 5 до 10 символов')"/></div>
+                <div><input class="form-control" style="width: 300px; height: 40px" type="password" name="password" placeholder="Пароль" required/></div>
+                <br>
+                <div th:if="${message} != null or ${message} != ''">
+                    <p th:text="${message}"></p>
+                </div>
+                <i id="validateField"></i>
+                <p><input type="submit" value="Создать аккаунт" id="sendButton" disabled="disabled" class="w-0 btn btn-primary submitSignUp m-1"/></p>
+                <script src="/static/scripts/Validation.js"></script>
+
+            </form>
+        </main>
+        <a class="w-40 btn btn-primary submitSignUp m-0" href="/enter">Войти</a>
+        <p class="mt-5 mb-15 text-muted">© КБ 313Б</p>
+    </div>
+</body>
+</html>
