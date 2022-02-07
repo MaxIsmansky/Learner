@@ -12,35 +12,30 @@
 </head>
 <body>
     <header th:insert="blocks/header :: header"></header>
-        <table>
-            <tr width="100%" cellspacing="0" cellpadding="5">
-                <td width="960" valign="top">
-                    <div class="m-5">
-                        <h2>Обо мне</h2>
-                        <br>
-                        <div th:each="infoStr : ${infoArray}">
-                            <p th:text="${infoStr}"></p>
-                        </div>
-                        <br>
+    <div class="m-5"
+         style="float: left; width: 50%">
+        <h2>Обо мне</h2>
+        <br>
+        <div th:each="infoStr : ${infoArray}">
+            <p th:text="${infoStr}"></p>
+        </div>
+        <br>
 
-                        <h2>Скиллы</h2>
-                        <br>
-                        <div th:each="skillsStr : ${skillsArray}">
-                            <p th:text="${skillsStr}"></p>
-                        </div>
-                        <br>
+        <h2>Скиллы</h2>
+        <br>
+        <div th:each="skillsStr : ${skillsArray}">
+            <p th:text="${skillsStr}"></p>
+        </div>
+        <br>
 
-                        <h2>Планы</h2>
-                        <br>
-                        <div th:each="plansStr : ${plansArray}">
-                            <p th:text="${plansStr}"></p>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    Просто заполнить место
-                </td>
-            </tr>
-        </table>
+        <h2>Планы</h2>
+        <br>
+        <div th:each="plansStr : ${plansArray}">
+            <p th:text="${plansStr}"></p>
+        </div>
+    </div>
+    <div style="float: left">
+        Новая инфа
+    </div>
 </body>
 </html>
